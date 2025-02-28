@@ -138,6 +138,20 @@ SENSORS: list[DuolingoEntityDescription | Callable] = [
         icon="mdi:calendar-multiselect-outline",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
+    DuolingoEntityDescription(
+        key="quests",
+        name="Difficulty",
+        state=lambda x: get_prefix(x, "difficulty"),
+        icon="mdi:level-up",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    DuolingoEntityDescription(
+        key="user_info",
+        name="Badges",
+        state=lambda x: get_prefix(x, "badges"),
+        icon="mdi:medal",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
     lambda userCoordinator: generate_languages(userCoordinator),
     lambda userCoordinator: generate_friend_streaks(userCoordinator),
 ]

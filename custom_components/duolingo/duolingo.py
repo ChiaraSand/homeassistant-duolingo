@@ -907,6 +907,10 @@ class Duolingo(object):
                 return out
 
             goals = resp_progress.json().get("goals", {})
+            badges = resp_progress.json().get("badges", {})
+            out["badges"] = badges
+            difficulty = resp_progress.json().get("difficulty", {})
+            out["difficulty"] = difficulty
         except:
             return out
         progress = goals.get("progress", {})
